@@ -15,7 +15,7 @@ The application allows users to select one of five pets using radio buttons. Whe
   - Rabbit
   - Pig
 - Only one radio button can be selected at a time using `ButtonGroup`.
-- Displays the selected pet image.
+- Displays the selected pet image (loaded from `images/` or classpath).
 - Shows a confirmation message using `JOptionPane`.
 - Simple and user-friendly graphical interface.
 
@@ -25,7 +25,7 @@ The application allows users to select one of five pets using radio buttons. Whe
 
 - Java
 - Java Swing
-- Apache NetBeans IDE
+- Apache NetBeans IDE (optional)
 
 ---
 
@@ -34,32 +34,41 @@ The application allows users to select one of five pets using radio buttons. Whe
 ```
 RadioButtonDemo
 │
-├── src
-│   └── RadioButtonDemo.java
+├── RadioButton.java           (main Java source - single class GUI)
+├── images/                    (image assets used by the app)
+│   ├── bird.png
+│   ├── cat.png
+│   ├── dog.png
+│   ├── rabbit.png
+│   └── pig.png
 │
-├── images
-│   ├── bird.jpg
-│   ├── cat.jpg
-│   ├── dog.jpg
-│   ├── rabbit.jpg
-│   └── pig.jpg
-│
-├── nbproject
-├── build.xml
-├── manifest.mf
-└── README.md
+├── README.md
+├── Readme.docx
+├── OOP2 JAVA CODE ASSIGNMENT.docx
+├── Screenshot.jpeg
+├── Screenshot(1).jpeg
+└── Screenshot(2).jpeg
 ```
 
 ---
 
 ## How to Run
 
-1. Open **Apache NetBeans IDE**.
-2. Select **File > Open Project**.
-3. Open the `RadioButtonDemo` project folder.
-4. Build and run the project by pressing **F6** or clicking **Run Project**.
-5. Select any pet using the radio buttons.
-6. The corresponding image and a message dialog will appear.
+1. Ensure you have a Java JDK installed (javac and java on PATH).
+2. The application looks for images in the following order:
+   - classpath resource `/images/<pet>.png` (when running from a JAR or IDE resources)
+   - `images/<pet>.png` or `images/<pet>.jpg` in the working directory
+   - `<pet>.png` or `<pet>.jpg` in the working directory (backwards compatible)
+   - if none are found a generated placeholder image will be shown
+
+3. The repository includes small placeholder PNGs in `images/`. To run from the command line:
+
+```
+javac RadioButton.java
+java RadioButton
+```
+
+4. If you open the project in NetBeans, add `RadioButton.java` to a simple Java application project and add the `images/`folder to the project resources (or copy the images into the working directory), then run the project.
 
 ---
 
@@ -75,36 +84,6 @@ Example:
 ```
 You selected: Bird
 ```
-
-The same behavior applies to:
-
-- Cat
-- Dog
-- Rabbit
-- Pig
-
----
-
-## Learning Outcomes
-
-This project demonstrates:
-
-- Object-Oriented Programming (OOP)
-- Java Swing GUI development
-- JRadioButton
-- ButtonGroup
-- JLabel
-- ImageIcon
-- JOptionPane
-- Event handling using ActionListener
-
----
-
-## GitHub Repository
-
-Repository:
-
-**https://github.com/brio084/RadioButtonDemo.java.git**
 
 ---
 
